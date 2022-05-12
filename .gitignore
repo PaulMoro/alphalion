@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# error in VScode
+
+.liquidZone.Identifier
+.jsonZone.Identifier
+.jsZone.Identifier
+.cssZone.Identifier
