@@ -106,7 +106,7 @@ dist
 
 # error in VScode
 
-.liquidZone.Identifier
-.jsonZone.Identifier
-.jsZone.Identifier
-.cssZone.Identifier
+*.liquidZone.Identifier
+*.jsonZone.Identifier
+*.jsZone.Identifier
+*.cssZone.Identifier
