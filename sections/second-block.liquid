@@ -1,15 +1,59 @@
-<section id="secondBlock-{{ section.id }}" class="page-width section-{{ section.id }}-padding" data-section="{{ section.id }}">
-    aaa
+<section 
+  id="secondBlock-{{ section.id }}" 
+  class="page-width section-{{ section.id }}-padding" 
+  data-section="{{ section.id }}"
+  style="border-bottom: 2px solid red;">
+  <div class="second-block__head">
+    <h2>
+      {{ section.settings.title }}
+    </h2>
+  </div>
+  <div class="second-block__body">
+    {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'slide' %}
+        <div class="second-block__feature" {{ block.shopify_attributes }}>
+          {{ block.settings.image | image_url:  width: 55 | image_tag }}
+          <p>
+            {{block.settings.text-feature}}
+          </p>
+        </div>
+    {% endcase %}
+  {% endfor %}
+  </div>
 </section>
 
 {% schema %}
 {
   "name": "second-block",
   "tag": "section",
-  "class": "section",
+  "class": "second-block",
+  "limit": 1,
   "blocks": [
+    {
+      "name": "Features",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text-feature",
+          "label": "Slideshow"
+        }
+      ]
+    }
   ],
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Fuel the most intense training sessions in the gym, on the field or on the course!",
+      "label": "Slideshow"
+    }
   ]
 }
 {% endschema %}

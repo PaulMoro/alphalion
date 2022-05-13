@@ -1,22 +1,65 @@
-<section id="MainProduct-{{ section.id }}" class="main-product page-width section-{{ section.id }}-padding" data-section="{{ section.id }}">
+<div 
+  id="MainProduct-{{ section.id }}" 
+  class="main-product page-width section-{{ section.id }}-padding" 
+  data-section="{{ section.id }}"
+  style="border-bottom: 2px solid red;">
   <div class="main-product__slider">
     <div class="main-product__img">
-      {{ product.featured_image.aspect_ratio }}
-      <img src="{{product.featured_media}}" alt="">
+      <img src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" class="w-full" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+      <ul class="main-product__arrow">
+        <li class="arrow--left">
+          {% render 'icon-arrow' %}
+        </li>
+        <li class="arrow--rigth">
+          {% render 'icon-arrow' %}
+        </li>
+      </ul>
     </div>
   </div>
   <div class="main-product__description">
-    {{product.description}}
-    <p>{{product.content}}</p>
+    <h1>{{product.title}}</h1>
+    {% assign textProduct = product.content | split: "~" %}
+    {% assign textProductQualities = textProduct | first %}
+    {% assign textProductDescription = textProduct | last %}
+    {%- if textProductQualities  == textProductDescription -%}
+      <p>{{textProductDescription}}</p>
+    {%- else -%}
+      <h2>{{ textProductQualities}} </h2>
+      <p>{{textProductDescription }}</p>
+    {%- endif %}
   </div>
-  <div class="main-product__buy"></div>
-</section>
+  <div class="main-product__buy">
+    <div class="main-product__price">
+      {%- if product.compare_at_price == "nil" -%}
+        {{product.price}}
+      {%- else -%}
+        {{product.price}}
+        {{product.compare_at_price}}
+      {%- endif %}
+    </div>
+    <div class="main-product__select">
+      <label for="types">Select Flavor:</label>
+      <select name="types" id="types">
+        
+        {% for option in product.variants %}
+          <option value="{{ option.id }}">
+            {% assign titleProduct = option.title | split: "(" %}
+            {{ titleProduct | first }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="main-product__btn-buy">
+      <a href="#" class="button">ADD TO CART</a>
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
   "name": "main-product",
   "tag": "section",
-  "class": "section",
+  "class": "main-product",
   "blocks": [
   ],
   "settings": [

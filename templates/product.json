@@ -1,14 +1,75 @@
 {
   "sections": {
     "main": {
-      "type": "main-product"
+      "type": "main-product",
+      "settings": {
+      }
     },
     "second-block": {
-      "type": "second-block"
+      "type": "second-block",
+      "blocks": {
+        "1be82ffa-a155-44c6-b494-6403b9968ec5": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group-51.webp",
+            "text-feature": "Promotes Increased Training Capacity & Power Output"
+          }
+        },
+        "a5d889da-ee60-4142-9eba-73ffb2c6be07": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Polygon-4_f0fb1a72-71e1-42ee-b710-a3f86924ec3d.webp",
+            "text-feature": "Potent Adaptogen Support for Vitality & Increased Endurance"
+          }
+        },
+        "f56ac2c4-d739-4776-9495-854ad4af8d48": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group-33.webp",
+            "text-feature": "Aids in Recovery & Reduces Muscle Soreness Post-Training"
+          }
+        },
+        "bb4e5fa1-8bb8-45c9-b11f-95986ae70d2b": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group-52.webp",
+            "text-feature": "Supports Elevated Energy & Focus"
+          }
+        }
+      },
+      "block_order": [
+        "1be82ffa-a155-44c6-b494-6403b9968ec5",
+        "a5d889da-ee60-4142-9eba-73ffb2c6be07",
+        "f56ac2c4-d739-4776-9495-854ad4af8d48",
+        "bb4e5fa1-8bb8-45c9-b11f-95986ae70d2b"
+      ],
+      "settings": {
+        "title": "Fuel the most intense training sessions in the gym, on the field or on the course!"
+      }
+    },
+    "third-block": {
+      "type": "third-block",
+      "settings": {
+        "subtitle": "Fully Disclosed Formula.Premium Patented Ingredients.",
+        "title": "Backed by Science at Scientifically Studied Doses!",
+        "table": "shopify:\/\/shop_images\/image_50_c773ab06-a7a7-48a7-a48e-e050685390bf.png",
+        "description": "<p>Only cowards hide behind magical “blends” in their formulas that are simply marketing excuses for underdosed ingredients and ineffective products.<\/p><p><\/p><p><strong>We take pride in our Full Label Disclosure, so you see the dose used in EVERY ingredient inside, which means:<\/strong><\/p><p><\/p><p>| No Proprietary Blends (aka full  transparency)<br\/>| Scientifically studies premium ingredients<br\/>| No B.S.<br\/>| And most importantly… No Excuses<br\/><\/p>",
+        "link-image": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/7918\/1757\/files\/lion-icon.png?v=1651839423&width=534"
+      }
+    },
+    "fourth-block": {
+      "type": "fourth-block",
+      "settings": {
+        "title": "365 Day Money Back Guarantee",
+        "image": "shopify:\/\/shop_images\/money-back-seal.png",
+        "description": "<p>WE STAND BY Industry leading 365 Day Money Back Guarantee<br\/>If you don’t have an amazing experience with SuperHuman Sport, you have 365 days to ask for a full refund. We even let you keep the tub!<br\/><\/p>"
+      }
     }
   },
   "order": [
     "main",
-    "second-block"
+    "second-block",
+    "third-block",
+    "fourth-block"
   ]
 }

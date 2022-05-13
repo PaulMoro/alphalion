@@ -1,0 +1,78 @@
+<section 
+  id="thirdBlock-{{ section.id }}" 
+  class="page-width section-{{ section.id }}-padding" 
+  data-section="{{ section.id }}"
+  style="border-bottom: 2px solid red;">
+  <div class="third-block__body">
+    <div class="third-block__title">
+      <h3>
+        {{ section.settings.subtitle }}
+      </h3>
+      <h2>
+        {{ section.settings.title }}
+      </h2>
+    </div>
+    <div class="third-block__table">
+      {{ section.settings.table | image_url:  width: 534 | image_tag }}
+    </div>
+    <div class="third-block__description">
+      <style>
+        #e{
+          position: relative;
+          padding-left: 32px;
+        }
+        #e:before{
+          content:'';
+          width: 25px;
+          height: 20px;
+          position:absolute; 
+          top:0px;
+          z-index:10; 
+          background-image: url({{section.settings.link-image}});
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
+      {{ section.settings.description | replace: "|", "<span id='e'><span>"}}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "third-block",
+  "tag": "section",
+  "class": "third-block",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "default": "Fully Disclosed Formula.Premium Patented Ingredients.",
+      "label": "Slideshow"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Backed by Science at Scientifically Studied Doses!",
+      "label": "Slideshow"
+    },
+    {
+      "type": "image_picker",
+      "id": "table",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Paragraph"
+    },
+    {
+      "type": "url",
+      "id": "link-image",
+      "label": "Link's image"
+    }
+  ]
+}
+{% endschema %}

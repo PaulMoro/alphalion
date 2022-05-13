@@ -1,0 +1,44 @@
+<section 
+  id="fourthBlock-{{ section.id }}" 
+  class="page-width section-{{ section.id }}-padding" 
+  data-section="{{ section.id }}"
+  style="border-bottom: 2px solid red;">
+  <div class="fourth-block__body">
+    <div class="fourth-block__table">
+        {{ section.settings.image | image_url:  width: 104 | image_tag }}
+    </div>
+    <div class="fourth-block__description">
+      <h2>
+        {{ section.settings.title }}
+      </h2>
+      {{ section.settings.description }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "fourth-block",
+  "tag": "section",
+  "class": "fourth-block",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "365 Day Money Back Guarantee",
+      "label": "Slideshow"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Paragraph"
+    }
+  ]
+}
+{% endschema %}
