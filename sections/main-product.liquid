@@ -2,60 +2,65 @@
   id="MainProduct-{{ section.id }}" 
   class="main-product page-width section-{{ section.id }}-padding" 
   data-section="{{ section.id }}"
-  style="border-bottom: 2px solid red; background-color: {{ section.settings.body_background }};">
-  <div class="main-product__slider">
-    <div class="main-product__img">
-      <img src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" class="w-full" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-      <ul class="main-product__arrow paul-remove-style--ul">
-        <li class="arrow arrow--left">
-          {% render 'icon-arrow' %}
-        </li>
-        <li class="arrow arrow--right">
-          {% render 'icon-arrow' %}
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="main-product__description">
-    <h1 class="paul-title paul-text--white">{{product.title}}</h1>
-    {% assign textProduct = product.content | split: "~" %}
-    {% assign textProductQualities = textProduct | first %}
-    {% assign textProductDescription = textProduct | last %}
-    {%- if textProductQualities  == textProductDescription -%}
-      <div class="paul-text--white">
-        {{textProductDescription}}
+  style="background-color: {{ section.settings.body_background }};">
+  <div class="main-product__body">
+    <div class="main-product__slider">
+      <div class="main-product__img">
+        <img src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" class="w-full" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+        <ul class="main-product__arrow paul-remove-style--ul">
+          <li class="arrow arrow--left">
+            {% render 'icon-arrow' %}
+          </li>
+          <li class="arrow arrow--right">
+            {% render 'icon-arrow' %}
+          </li>
+        </ul>
       </div>
-    {%- else -%}
-    <div class="paul-text--white">
-      <span class="main-product__description--features"></span>
-      {{ textProductQualities }}
-      {{ textProductDescription }}
     </div>
-    {%- endif %}
-  </div>
-  <div class="main-product__buy">
-    <div class="main-product__price">
-      {%- if product.compare_at_price == "nil" -%}
-        <span class="paul-title paul-text--white">{{product.price | money_without_trailing_zeros}}</span>
+    <div class="main-product__description">
+      <h1 class="paul-title paul-text--white">{{product.title}}</h1>
+      {% assign textProduct = product.content | split: "~" %}
+      {% assign textProductQualities = textProduct | first %}
+      {% assign textProductDescription = textProduct | last %}
+      {%- if textProductQualities  == textProductDescription -%}
+        <div class="paul-text--white">
+          {{textProductDescription}}
+        </div>
       {%- else -%}
-        <span class="paul-title paul-text--white">{{product.price | money_without_trailing_zeros}}</span>
-        <strike class="paul-subtitle paul-text--gray">{{product.compare_at_price | money_without_trailing_zeros}}</strike>
+      <div class="paul-text--white">
+        <span class="main-product__description--features"></span>
+        {{ textProductQualities }}
+        {{ textProductDescription }}
+      </div>
       {%- endif %}
     </div>
-    <div class="main-product__select">
-      <label for="types" class="paul-text--white">Select Flavor:</label>
-      <select name="types" id="types">
-        
-        {% for option in product.variants %}
-          <option value="{{ option.id }}">
-            {% assign titleProduct = option.title | split: "(" %}
-            {{ titleProduct | first }}
-          </option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="main-product__btn-buy">
-      <a href="#" class="button">ADD TO CART</a>
+    <div class="main-product__buy">
+      <div class="main-product__price">
+        {%- if product.compare_at_price == "nil" -%}
+          <span class="paul-title paul-text--white">{{product.price | money_without_trailing_zeros}}</span>
+        {%- else -%}
+          <span class="paul-title paul-text--white">{{product.price | money_without_trailing_zeros}}</span>
+          <strike class="paul-subtitle paul-text--gray">{{product.compare_at_price | money_without_trailing_zeros}}</strike>
+        {%- endif %}
+      </div>
+      <div class="main-product__select">
+        <label for="types" class="paul-text paul-text--white">Select Flavor:</label>
+        <select name="types" id="types" class="paul-subtitle">
+          
+          {% for option in product.variants %}
+            <option value="{{ option.id }}">
+              {% assign titleProduct = option.title | split: "(" %}
+              {{ titleProduct | first }}
+            </option>
+          {% endfor %}
+        </select>
+        <span class="arrow paul-animation">&#9650;</span>
+      </div>
+      <div class="main-product__btn-buy">
+        <a href="#" class="button paul-subtitle">ADD TO CART
+          {% render 'icon-cart' %}
+        </a>
+      </div>
     </div>
   </div>
 </div>
