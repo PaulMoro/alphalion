@@ -1,0 +1,121 @@
+/* Vital Styles */
+@font-face {
+  font-family: 'Tungsten';
+  src: url('Tungsten-Bold.eot');
+  src: url('Tungsten-Bold.eot?#iefix') format('embedded-opentype'),
+      url('Tungsten-Bold.woff2') format('woff2'),
+      url('Tungsten-Bold.woff') format('woff'),
+      url('Tungsten-Bold.ttf') format('truetype'),
+      url('Tungsten-Bold.svg#Tungsten-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.paul-title{
+  font-family: 'Tungsten';
+  font-size: 4rem;
+  line-height: 2.375rem;
+}
+
+.paul-subtitle{
+  font-family: 'Tungsten';
+  font-size: 2.5rem;
+  line-height: 2.375rem;
+}
+
+.paul-text{
+  font-family: 'Roboto';
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.paul-text--big{
+  font-family: 'Roboto';
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+}
+
+.paul-text--white{
+  color: #FFFFFF;
+}
+
+.paul-text--gray{
+  color: #C9C9C9;
+}
+
+.paul-remove-style--ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main Product */
+.main-product {
+}
+
+.main-product__slider{
+  padding: 2rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.main-product__img > img{
+  max-height: 18.5rem;
+}
+
+.main-product__arrow{
+}
+
+.main-product__arrow .arrow{
+  position: absolute;
+  bottom: 9.25rem;
+  cursor: pointer;
+}
+
+.main-product__arrow .arrow--left{
+  right: 0;
+}
+
+.main-product__arrow .arrow--right{
+  transform: rotateZ(180deg);
+  left: 0;
+}
+
+.main-product__description{
+  padding: 0 0 1.5rem;
+}
+
+.main-product__description p{
+  margin: 0;
+}
+
+.main-product__description p:last-child{
+  padding: 1rem 0 0;
+}
+
+.main-product__description p:last-child > img{
+  transform: translateY(0.375rem);
+}
+.main-product__description--features + p{
+  padding: 0 0 1rem;
+  font-family: 'Tungsten';
+  font-size: 1.875rem;
+}
+
+.main-product__buy{
+
+}
+
+.main-product__price{
+  padding: 0 0 1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+}
+
+.main-product__select{
+  
+}
