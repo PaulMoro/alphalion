@@ -1,43 +1,32 @@
-<section 
+<div 
   id="thirdBlock-{{ section.id }}" 
-  class="page-width section-{{ section.id }}-padding" 
+  class="section-{{ section.id }}-padding" 
   data-section="{{ section.id }}"
-  style="border-bottom: 2px solid red;">
-  <div class="third-block__body">
-    <div class="third-block__title">
-      <h3>
-        {{ section.settings.subtitle }}
-      </h3>
-      <h2>
-        {{ section.settings.title }}
-      </h2>
-    </div>
-    <div class="third-block__table">
-      {{ section.settings.table | image_url:  width: 534 | image_tag }}
-    </div>
-    <div class="third-block__description">
-      <style>
-        #e{
-          position: relative;
-          padding-left: 32px;
-        }
-        #e:before{
-          content:'';
-          width: 25px;
-          height: 20px;
-          position:absolute; 
-          top:0px;
-          z-index:10; 
-          background-image: url({{section.settings.link-image}});
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      </style>
-      {{ section.settings.description | replace: "|", "<span id='e'><span>"}}
+  style="background-color: {{ section.settings.body_background }};">
+  <div class="page-width">
+    <div class="third-block__body">
+      <div class="third-block__title">
+        <h3 class="third-block__title--first paul-subtitle paul-text--white">
+          {{ section.settings.subtitle }}
+        </h3>
+        <h2 class="third-block__title--second paul-title paul-text--white">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+      <div class="third-block__table">
+        {{ section.settings.table | image_url:  width: 534 | image_tag }}
+      </div>
+      <div class="third-block__description">
+        <style>
+          .third-block__description #icon-list:before{
+            background-image: url({{section.settings.link-image}});
+          }
+        </style>
+        {{ section.settings.description | replace: "|", "<span id='icon-list'><span>" }}
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 {% schema %}
 {
@@ -72,6 +61,12 @@
       "type": "url",
       "id": "link-image",
       "label": "Link's image"
+    },
+    {
+      "type": "color",
+      "id": "body_background",
+      "label": "Body text",
+      "default": "#000"
     }
   ]
 }

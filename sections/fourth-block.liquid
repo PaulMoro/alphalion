@@ -1,20 +1,22 @@
-<section 
+<div 
   id="fourthBlock-{{ section.id }}" 
-  class="page-width section-{{ section.id }}-padding" 
+  class="section-{{ section.id }}-padding" 
   data-section="{{ section.id }}"
-  style="border-bottom: 2px solid red;">
-  <div class="fourth-block__body">
-    <div class="fourth-block__table">
-        {{ section.settings.image | image_url:  width: 104 | image_tag }}
-    </div>
-    <div class="fourth-block__description">
-      <h2>
-        {{ section.settings.title }}
-      </h2>
-      {{ section.settings.description }}
+  style=" background-image: url({{section.settings.background | image_url:  width: grande}});">
+  <div class="page-width">
+    <div class="fourth-block__body">
+      <div class="fourth-block__table">
+        {{ section.settings.image | image_url:  width: 152 | image_tag | replace: '<img', '<img class="fourth-block__img"'}}
+        <div class="fourth-block__description">
+          <h2 class="fourth-block__title paul-title paul-text--white">
+            {{ section.settings.title }}
+          </h2>
+          {{ section.settings.description }}
+        </div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 {% schema %}
 {
@@ -38,6 +40,11 @@
       "type": "richtext",
       "id": "description",
       "label": "Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Image Background"
     }
   ]
 }
