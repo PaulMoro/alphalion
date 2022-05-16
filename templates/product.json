@@ -3,6 +3,7 @@
     "main": {
       "type": "main-product",
       "settings": {
+        "body_background": "#000000"
       }
     },
     "second-block": {
@@ -44,7 +45,8 @@
         "bb4e5fa1-8bb8-45c9-b11f-95986ae70d2b"
       ],
       "settings": {
-        "title": "Fuel the most intense training sessions in the gym, on the field or on the course!"
+        "title": "Fuel the most intense training sessions in the gym, on the field or on the course!",
+        "body_background": "#F4F4F4"
       }
     },
     "third-block": {
@@ -54,7 +56,8 @@
         "title": "Backed by Science at Scientifically Studied Doses!",
         "table": "shopify:\/\/shop_images\/image_50_c773ab06-a7a7-48a7-a48e-e050685390bf.png",
         "description": "<p>Only cowards hide behind magical “blends” in their formulas that are simply marketing excuses for underdosed ingredients and ineffective products.<\/p><p><\/p><p><strong>We take pride in our Full Label Disclosure, so you see the dose used in EVERY ingredient inside, which means:<\/strong><\/p><p><\/p><p>| No Proprietary Blends (aka full  transparency)<br\/>| Scientifically studies premium ingredients<br\/>| No B.S.<br\/>| And most importantly… No Excuses<br\/><\/p>",
-        "link-image": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/7918\/1757\/files\/lion-icon.png?v=1651839423&width=534"
+        "link-image": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/7918\/1757\/files\/lion-icon.png?v=1651839423&width=534",
+        "body_background": "#000"
       }
     },
     "fourth-block": {
@@ -62,7 +65,8 @@
       "settings": {
         "title": "365 Day Money Back Guarantee",
         "image": "shopify:\/\/shop_images\/money-back-seal.png",
-        "description": "<p>WE STAND BY Industry leading 365 Day Money Back Guarantee<br\/>If you don’t have an amazing experience with SuperHuman Sport, you have 365 days to ask for a full refund. We even let you keep the tub!<br\/><\/p>"
+        "description": "<p><strong>WE STAND BY Industry leading 365 Day Money Back Guarantee<\/strong><br\/>If you don’t have an amazing experience with SuperHuman Sport, you have 365 days to ask for a full refund. We even let you keep the tub!<br\/><\/p>",
+        "background": "shopify:\/\/shop_images\/lion-pattern.png"
       }
     }
   },
