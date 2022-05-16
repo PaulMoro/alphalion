@@ -72,16 +72,24 @@
 
 <script>
   /* Change the src for slider */
-  const findElement = (idElement) => {
+  const findElement = (idElement) => { 
     let btnForSlider = document.getElementById(idElement)
     return btnForSlider
+  }
+
+  const checkHttp = () => {
+    if (window.location.href.search('http:') === 0) {
+      return 'http:'
+    } else {
+      return 'https:'
+    }
   }
 
   const addCustomEvent = (element, road, data) => {
     let sliderCustom = findElement('product-photo-img')
     element.addEventListener('click', () => {
-      let link = sliderCustom.src.replace('http:', '')
-      const isLargeNumber = (e) => e == link ;
+      let link = sliderCustom.src
+      const isLargeNumber = (e) => `${checkHttp()}${e}` == link ;
       if(road) {
         if(data.findIndex(isLargeNumber) - 1 == 0) {
           sliderCustom.src = data[data.length - 2]
