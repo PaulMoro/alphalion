@@ -226,7 +226,7 @@ p, label, span{
     padding: 9.4rem 0 12.4rem;
     max-width: none;
     display: grid;
-    grid-template-columns: 31.8rem auto 20rem;
+    grid-template-columns: 31.8rem minmax(auto, 48rem) minmax(20rem, 1fr);
     grid-template-rows: 1fr;
   }
 
@@ -285,5 +285,85 @@ p, label, span{
 
   .main-product__btn-buy{
     padding: 3.8rem 0 0;
+  }
+}
+
+/* Second Block */
+
+.second-block{
+}
+
+.second-block__main{
+  padding: 3.6rem 0 3.9rem;
+}
+
+.second-block__title{
+  margin: 0 auto;
+  padding: 0 0 2rem;
+  max-width: 82.2rem;
+  text-align: center;
+}
+
+.second-block__body{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.second-block__feature{
+  border-radius: 3px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.second-block__img{
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.second-block__text{
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .second-block__main{
+    padding: 8.5rem 0 12.6rem;
+  }
+  
+  .second-block__title{
+    padding: 0 0 13.5rem;
+  }
+  
+  .second-block__body{
+    flex-direction: row;
+    gap: 3.1rem;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  
+  .second-block__feature{
+    padding: 11.3rem 2.4rem 5rem;
+    max-width: 26rem;
+    flex-direction: column;
+    position: relative;
+    flex-basis: 25%;
+  }
+  
+  .second-block__img{
+    position: absolute;
+    top: 0;
+    width: 10.4rem;
+    height: 10.4rem;
+    transform: translateY(-50%);
+  }
+  
+  .second-block__text{
+    padding: 0;
+    text-align: center;
   }
 }
