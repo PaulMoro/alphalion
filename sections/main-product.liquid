@@ -6,12 +6,17 @@
   <div class="main-product__body">
     <div class="main-product__slider">
       <div class="main-product__img">
-        <img src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" class="w-full" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+        <img 
+          src="{{ product.selected_or_first_available_variant.featured_media | img_url: 'master' }}" 
+          class="w-full" 
+          alt="{{ featured_image.alt | escape }}" 
+          id="product-photo-img"
+          data-alternative="{% for image in product.images %}{{ image.src | img_url: 'master' }},{% endfor %}">
         <ul class="main-product__arrow paul-remove-style--ul">
-          <li class="arrow arrow--left">
+          <li class="arrow arrow--left" id="arrow-to-left">
             {% render 'icon-arrow' %}
           </li>
-          <li class="arrow arrow--right">
+          <li class="arrow arrow--right" id="arrow-to-right">
             {% render 'icon-arrow' %}
           </li>
         </ul>
@@ -44,8 +49,8 @@
         {%- endif %}
       </div>
       <div class="main-product__select">
-        <label for="types" class="paul-text paul-text--white">Select Flavor:</label>
-        <select name="types" id="types" class="paul-subtitle">
+        <label for="types-product-shopify" class="paul-text paul-text--white">Select Flavor:</label>
+        <select name="types-product-shopify" id="types-product-shopify" class="paul-subtitle">
           
           {% for option in product.variants %}
             <option value="{{ option.id }}">
@@ -57,13 +62,61 @@
         <span class="arrow paul-animation">&#9650;</span>
       </div>
       <div class="main-product__btn-buy">
-        <a href="#" class="button paul-subtitle">ADD TO CART
+        <a href="/cart/{{product.selected_or_first_available_variant.id}}:1" class="button paul-subtitle" id="link-to-cart-shopify">ADD TO CART
           {% render 'icon-cart' %}
         </a>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  /* Change the src for slider */
+  const findElement = (idElement) => {
+    let btnForSlider = document.getElementById(idElement)
+    return btnForSlider
+  }
+
+  const addCustomEvent = (element, road, data) => {
+    let sliderCustom = findElement('product-photo-img')
+    element.addEventListener('click', () => {
+      let link = sliderCustom.src.replace('http:', '')
+      const isLargeNumber = (e) => e == link ;
+      if(road) {
+        if(data.findIndex(isLargeNumber) - 1 == 0) {
+          sliderCustom.src = data[data.length - 2]
+        } else {
+          sliderCustom.src = data[data.findIndex(isLargeNumber) - 1]
+        }
+      } else {
+        if(data.findIndex(isLargeNumber) + 1 == data.length -1) {
+          sliderCustom.src = data[0]
+        } else {
+          sliderCustom.src = data[data.findIndex(isLargeNumber) + 1]
+        }
+      }
+    })
+  }
+
+  const changeSliderOnProduct = () => {
+    let allImages = findElement('product-photo-img').dataset.alternative.split(',')
+    addCustomEvent(findElement('arrow-to-right'), 1, allImages)
+    addCustomEvent(findElement('arrow-to-left'), 0, allImages)
+  }
+
+  changeSliderOnProduct()
+
+  /* Change href for checkout */
+  const changeLinkToShopify = (quantity) => {
+    let btnLink = document.getElementById('link-to-cart-shopify')
+    let selectProduct = document.getElementById('types-product-shopify')
+    selectProduct.addEventListener('input', (e) => {
+      btnLink.href = `/cart/${ e.target.value }:${ quantity }`
+    })
+  }
+
+  changeLinkToShopify(1)
+</script>
 
 {% schema %}
 {
