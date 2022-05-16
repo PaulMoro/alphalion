@@ -288,6 +288,12 @@ p, label, span{
   }
 }
 
+@media (min-width: 1200px) {
+  .main-product__body {
+    grid-template-columns: 1fr minmax(auto, 58rem) 1fr;
+  }
+}
+
 /* Second Block */
 
 .second-block{
@@ -359,7 +365,7 @@ p, label, span{
     top: 0;
     width: 10.4rem;
     height: 10.4rem;
-    transform: translateY(-50%);
+    transform: translateY(-25%);
   }
   
   .second-block__text{
